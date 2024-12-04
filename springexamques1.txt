@@ -1,0 +1,74 @@
+package com.codingspring;
+
+public class examcollege {
+     
+	  String name;
+	  String section;
+	  int marks;
+	  String cname;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public int getMarks() {
+		return marks;
+	}
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	@Override
+	public String toString() {
+		return "examcollege [name=" + name + ", section=" + section + ", marks=" + marks + ", cname=" + cname + "]";
+	}
+	  
+}
+package com.codingspring;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class examstudent {
+	@Bean
+	public examcollege ex()
+	{
+		examcollege e1=new examcollege();
+		e1.setName("Hari");
+		e1.setSection("A");
+		e1.setMarks(906);
+		e1.setCname("KSRM");
+		return e1;
+	}
+
+}
+package com.codingspring;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ApplicationContext;
+
+public class exmaincollege {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   
+	ApplicationContext con=new AnnotationConfigApplicationContext(examstudent.class);	
+	examcollege ec=con.getBean(examcollege.class);
+	System.out.println(ec);
+		
+	}
+
+}
