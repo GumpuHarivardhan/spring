@@ -1,0 +1,78 @@
+package com.chspring.Apps;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+       ApplicationContext context=new ClassPathXmlApplicationContext("student1.xml");
+       examgame col=context.getBean(examgame.class);
+       System.out.println(col);
+    }
+}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:tx="http://www.springframework.org/schema/tx" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd"> 
+  <bean id="stud" class="com.chspring.Apps.examgame">
+     <property name="name" value="Hari"/>
+     <property name="players" value="12"/>
+     <property name="s_name" value="hyd"/>
+     <property name="s_strength" value="ten thousand"/>
+   </bean>
+   
+ </beans>
+package com.chspring.Apps;
+
+public class examgame {
+	 
+	String name;
+	int players;
+	String s_name;
+	String s_strength;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPlayers() {
+		return players;
+	}
+	public void setPlayers(int players) {
+		this.players = players;
+	}
+	public String getS_name() {
+		return s_name;
+	}
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
+	public String getS_strength() {
+		return s_strength;
+	}
+	public void setS_strength(String s_strength) {
+		this.s_strength = s_strength;
+	}
+	@Override
+	public String toString() {
+		return "examgame [name=" + name + ", players=" + players + ", s_name=" + s_name + ", s_strength=" + s_strength
+				+ "]";
+	}
+	
+
+}
