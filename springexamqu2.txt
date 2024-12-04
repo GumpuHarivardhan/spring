@@ -1,0 +1,53 @@
+package com.codingspring;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ApplicationContext;
+public class mainemployee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      ApplicationContext cont=new AnnotationConfigApplicationContext(employeedet.class);
+      exemployee emee=cont.getBean(exemployee.class);
+      System.out.println(emee);
+	}
+
+}
+package com.codingspring;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class employeedet {
+	
+	@Bean
+	public exemployee ee()
+	{
+		exemployee ey=new exemployee(463,"anil","ECE",25000);
+		return ey;
+				
+	}
+
+}
+package com.codingspring;
+
+public class exemployee {
+	
+	int id;
+	String name;
+	String depart;
+	int salary ;
+	public exemployee(int id, String name, String depart, int salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.depart = depart;
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "exemployee [id=" + id + ", name=" + name + ", depart=" + depart + ", salary=" + salary + "]";
+	}
+	
+
+}
